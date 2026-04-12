@@ -1,0 +1,40 @@
+{
+  "name": "@diagent/cli",
+  "version": "0.1.1",
+  "description": "Encode and decode Diagent shareable flowchart URLs from the command line. Designed for agents (Claude Code, Cursor) and humans.",
+  "type": "module",
+  "bin": {
+    "diagent": "./build/cli.js"
+  },
+  "files": [
+    "build/cli.js",
+    "build/core.js",
+    "SKILL.md",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniellee-ux/diagent-cli.git"
+  },
+  "homepage": "https://github.com/daniellee-ux/diagent-cli#readme",
+  "license": "MIT",
+  "keywords": ["mermaid", "diagram", "flowchart", "cli", "agent", "claude-code"],
+  "scripts": {
+    "build": "tsc && chmod +x build/cli.js",
+    "start": "node build/cli.js",
+    "test": "node --test build/core.test.js"
+  },
+  "engines": {
+    "node": ">=18.3.0"
+  },
+  "dependencies": {
+    "lz-string": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.2",
+    "typescript": "~6.0.2"
+  }
+}
