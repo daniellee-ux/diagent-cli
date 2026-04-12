@@ -20,7 +20,7 @@
     "url": "https://github.com/daniellee-ux/diagent-cli.git"
   },
   "homepage": "https://github.com/daniellee-ux/diagent-cli#readme",
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "keywords": ["mermaid", "diagram", "flowchart", "cli", "agent", "claude-code"],
   "scripts": {
     "build": "tsc && chmod +x build/cli.js",
