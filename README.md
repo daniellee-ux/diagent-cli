@@ -210,4 +210,4 @@ without a separate `wrangler dev` process or proxy. Production
 
 ### License
 
-AGPL-3.0 — see [LICENSE](../LICENSE)
+MIT — see [LICENSE](./LICENSE)
