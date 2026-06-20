@@ -8,7 +8,7 @@ import {
   DEFAULT_BASE_URL,
 } from './core.js';
 
-const HELP = `diagent — encode and decode Diagent shareable flowchart URLs
+const HELP = `diagent — encode and decode Diagent shareable diagram URLs
 
 Usage:
   diagent encode [FILE] [--base-url URL] [--inline] [--open]

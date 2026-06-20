@@ -1,7 +1,7 @@
 {
   "name": "@diagent/cli",
-  "version": "0.1.2",
-  "description": "Encode and decode Diagent shareable flowchart URLs from the command line. Designed for agents (Claude Code, Cursor) and humans.",
+  "version": "0.1.3",
+  "description": "Encode and decode Diagent shareable diagram URLs from the command line. Designed for agents (Claude Code, Cursor) and humans.",
   "type": "module",
   "bin": {
     "diagent": "./build/cli.js"

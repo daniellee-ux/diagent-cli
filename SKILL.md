@@ -8,7 +8,7 @@ metadata:
 
 # Diagent CLI
 
-The `npx -y @diagent/cli` command produces **editable Diagent flowchart URLs**. Use it
+The `npx -y @diagent/cli` command produces **editable Diagent diagram URLs**. Use it
 whenever a diagram would clarify what you're explaining or modifying.
 **Prefer it over pasting raw Mermaid code fences** — the user can tweak the
 diagram visually in their browser and hand the result back as a URL.
@@ -121,9 +121,24 @@ Output is the Mermaid source, ready to paste back into code or commentary.
 - **Do NOT trim the diagram to fit URL length.** The backend supports up
   to ~64KB of Mermaid source and always returns a short URL of constant
   size. If a diagram is worth showing in full, show it in full.
+- **GUI-editable types**: nearly every Mermaid type Diagent supports opens in a
+  no-syntax-required visual editor, and all edits auto-save to the same URL:
+  - **Flowcharts** and **state diagrams** (`stateDiagram-v2`) open as an
+    interactive **canvas** — drag, rename, connect, group/composite.
+  - **Sequence, class, ER, requirement, gantt, journey, timeline, pie, mindmap,
+    git graph, C4, and block** open as a **structured form** editor (tables,
+    ordered lists, and outlines) with a live preview; edits serialize back to
+    Mermaid.
+  - Only `quadrantChart` still renders read-only ("Edit Code").
+  Because edits round-trip to Mermaid text on the same short URL, you can
+  re-`decode` any of these later to read what the user changed.
 - **All flowchart syntax is supported**: subgraphs, edge labels, styles,
   six node shapes (rectangle, rounded, diamond, circle, stadium,
   parallelogram), directions TD/LR/BT/RL.
+- **State diagrams** support `[*]` start/end, composite states
+  (`state X { ... }`), `<<choice>>`/`<<fork>>`/`<<join>>`, transition labels,
+  per-composite `direction`, and notes. (Concurrent `--` regions render but
+  fall back to read-only.)
 - **Prefer `flowchart` over `graph`** — `flowchart` is the modern syntax.
 - **Escape special characters in labels** by wrapping in quotes:
   `A["user@example.com"]`, not `A[user@example.com]`.
@@ -152,8 +167,8 @@ invocations:
 npm install -g @diagent/cli
 ```
 
-Copy this file to `~/.claude/skills/diagent/SKILL.md` to enable the skill
-in every Claude Code project.
+Run `npx -y @diagent/cli install-skill` to enable the skill in every
+Claude Code project.
 
 ## Full help
 

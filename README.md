@@ -1,6 +1,6 @@
 ## @diagent/cli
 
-Command-line tool to encode and decode Diagent shareable flowchart URLs.
+Command-line tool to encode and decode Diagent shareable diagram URLs.
 Designed for agents (Claude Code, Cursor) and humans alike.
 
 By default, `diagent encode` produces a **short URL** like

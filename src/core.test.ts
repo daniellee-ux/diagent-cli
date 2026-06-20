@@ -18,6 +18,25 @@ test('round-trip preserves Mermaid source', () => {
   assert.equal(decoded, src);
 });
 
+test('round-trips non-flowchart diagram types (type-agnostic)', () => {
+  // The CLI stores raw Mermaid text, so every diagram type — including the
+  // newly GUI-editable Class A/B types — must round-trip byte-for-byte.
+  const samples = [
+    'sequenceDiagram\n    A->>B: Hello\n    B-->>A: Hi',
+    'pie title Pets\n    "Dogs" : 3\n    "Cats" : 2',
+    'erDiagram\n    CUSTOMER ||--o{ ORDER : places',
+    'mindmap\n  root((center))\n    A\n    B',
+    'gitGraph\n    commit\n    branch dev',
+    'gantt\n    title T\n    dateFormat YYYY-MM-DD\n    section S\n        a :2024-01-01, 3d',
+  ];
+  for (const src of samples) {
+    const result = buildShareableUrl(src, 'https://diagent.dev/');
+    assert.equal(result.ok, true, `build failed for: ${src.split('\n')[0]}`);
+    if (!result.ok) continue;
+    assert.equal(extractMermaidFromUrl(result.url), src);
+  }
+});
+
 test('rejects empty input', () => {
   assert.equal(buildShareableUrl('  ').ok, false);
 });
